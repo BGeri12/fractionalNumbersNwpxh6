@@ -8,7 +8,7 @@ Fraction::Fraction(const int numerator, const int denominator)
 	if (this->denominator == 0)
 		throw std::invalid_argument("A nevezõ nem lehet nulla!");
 
-	if (this->denominator < 0){
+	if (this->denominator < 0) {
 		this->numerator *= -1;
 		this->denominator *= -1;
 	}
