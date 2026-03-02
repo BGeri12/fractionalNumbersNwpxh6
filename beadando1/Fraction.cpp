@@ -15,6 +15,10 @@ Fraction::Fraction(const int numerator, const int denominator)
 
 Fraction::Fraction(const int numerator) : Fraction(numerator, 1) {}
 
+Fraction::Fraction(const Fraction& fraction)
+	: numerator{ fraction.numerator },
+	denominator{ fraction.denominator } {}
+
 int Fraction::gcd(int a, int b) const
 {
 	if (a < 0)

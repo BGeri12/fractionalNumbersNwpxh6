@@ -9,7 +9,6 @@ int main()
 		<< "/"
 		<< p1->getDenominator()
 		<< std::endl;
-	delete p1;
 
 	Fraction f1(100);
 	std::cout << "Stored form: "
@@ -17,6 +16,14 @@ int main()
 		<< "/"
 		<< f1.getDenominator()
 		<< std::endl;
+
+	Fraction fCopy(*p1);
+	std::cout << "Stored form: "
+		<< fCopy.getNumerator()
+		<< "/"
+		<< fCopy.getDenominator()
+		<< std::endl;
+	delete p1;
 
 	try
 	{
