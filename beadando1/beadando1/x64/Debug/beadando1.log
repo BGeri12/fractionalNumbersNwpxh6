@@ -1,4 +1,5 @@
 ﻿  main.cpp
+D:\Egyetem\6.felev\HatekonyCPP\fractionalNumbersNwpxh6\beadando1\main.cpp(1,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
   Fraction.cpp
   Generating Code...
   beadando1.vcxproj -> D:\Egyetem\6.felev\HatekonyCPP\fractionalNumbersNwpxh6\beadando1\x64\Debug\beadando1.exe

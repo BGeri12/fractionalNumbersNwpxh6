@@ -6,7 +6,7 @@ Fraction::Fraction(const int numerator, const int denominator)
 	, denominator{ denominator < 0 ? -denominator : denominator}
 {
 	if (this->denominator == 0)
-		throw std::invalid_argument("A nevezo nem lehet nulla!");
+		throw std::invalid_argument("The denominator cannot be zero !");
 
 	int commonDivisor = this->gcd(this->numerator, this->denominator);
 	this->numerator /= commonDivisor;
@@ -28,4 +28,14 @@ int Fraction::gcd(int a, int b) const
 		b = temp;
 	}
 	return a;
+}
+
+int Fraction::getNumerator() const
+{
+	return this->numerator;
+}
+
+int Fraction::getDenominator() const
+{
+	return this->denominator;
 }
