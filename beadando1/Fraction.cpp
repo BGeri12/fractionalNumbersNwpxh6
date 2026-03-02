@@ -16,8 +16,10 @@ Fraction::Fraction(const int numerator, const int denominator)
 Fraction::Fraction(const int numerator) : Fraction(numerator, 1) {}
 
 Fraction::Fraction(const Fraction& fraction)
-	: numerator{ fraction.numerator },
-	denominator{ fraction.denominator } {}
+	: numerator{ fraction.numerator }
+	,denominator{ fraction.denominator } {}
+
+Fraction::Fraction(const double decimal) : Fraction(static_cast<int>(decimal * 1000000), 1000000) {}
 
 int Fraction::gcd(int a, int b) const
 {

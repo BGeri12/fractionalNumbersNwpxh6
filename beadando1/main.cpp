@@ -23,7 +23,15 @@ int main()
 		<< "/"
 		<< fCopy.getDenominator()
 		<< std::endl;
+
 	delete p1;
+
+	Fraction fDec(0.75);
+	std::cout << "Stored form: "
+		<< fDec.getNumerator()
+		<< "/"
+		<< fDec.getDenominator()
+		<< std::endl;
 
 	try
 	{
