@@ -13,6 +13,8 @@ Fraction::Fraction(const int numerator, const int denominator)
 	this->denominator /= commonDivisor;
 }
 
+Fraction::Fraction(const int numerator) : Fraction(numerator, 1) {}
+
 int Fraction::gcd(int a, int b) const
 {
 	if (a < 0)

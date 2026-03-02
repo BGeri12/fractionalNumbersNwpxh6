@@ -11,6 +11,13 @@ int main()
 		<< std::endl;
 	delete p1;
 
+	Fraction f1(100);
+	std::cout << "Stored form: "
+		<< f1.getNumerator()
+		<< "/"
+		<< f1.getDenominator()
+		<< std::endl;
+
 	try
 	{
 		Fraction fZero(1, 0);
