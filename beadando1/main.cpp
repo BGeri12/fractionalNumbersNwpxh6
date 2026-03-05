@@ -33,6 +33,15 @@ int main()
 		<< fDec.getDenominator()
 		<< std::endl;
 
+	Fraction fAdd = fCopy + fDec;
+
+	std::cout << fCopy.getNumerator() << "/" << fCopy.getDenominator()
+		<< " + " <<
+		fDec.getNumerator() << "/" << fDec.getDenominator()
+		<< " = " << fAdd.getNumerator() << "/" << fAdd.getDenominator()
+		<< std::endl;
+	
+
 	try
 	{
 		Fraction fZero(1, 0);

@@ -9,8 +9,11 @@ public:
 	Fraction(const Fraction& fraction);
 	Fraction(const double decimal);
 
+	friend Fraction operator+(const Fraction& f1, const Fraction& f2);
+
 	int getNumerator() const;
 	int getDenominator() const;
+
 
 private:
 	int numerator;
