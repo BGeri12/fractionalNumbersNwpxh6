@@ -35,10 +35,11 @@ int main()
 
 	Fraction fAdd = fCopy + fDec;
 
-	std::cout << fCopy.GetNumerator() << "/" << fCopy.GetDenominator()
+	std::cout << fCopy.FracToString()
 		<< " + " <<
-		fDec.GetNumerator() << "/" << fDec.GetDenominator()
-		<< " = " << fAdd.GetNumerator() << "/" << fAdd.GetDenominator()
+		fDec.FracToString()
+		<< " = " << 
+		fAdd.FracToString()
 		<< std::endl;
 	
 

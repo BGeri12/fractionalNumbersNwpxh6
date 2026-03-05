@@ -1,4 +1,5 @@
 #pragma once
+#include <string>
 
 class Fraction
 {
@@ -10,10 +11,11 @@ public:
 	Fraction(const double decimal);
 
 	friend Fraction operator+(const Fraction& f1, const Fraction& f2);
+	
 
 	int GetNumerator() const;
 	int GetDenominator() const;
-
+	std::string FracToString() const;
 
 private:
 	int numerator;

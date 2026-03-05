@@ -48,6 +48,11 @@ int Fraction::GetDenominator() const
 	return this->denominator;
 }
 
+std::string Fraction::FracToString() const
+{
+	return std::to_string(this->numerator) + "/" + std::to_string(this->denominator);
+}
+
 
 Fraction operator+(const Fraction& f1, const Fraction& f2)
 {
