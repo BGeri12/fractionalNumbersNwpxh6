@@ -74,3 +74,10 @@ Fraction operator*(const Fraction& f1, const Fraction& f2)
 	int newDenominator = f1.denominator * f2.denominator;
 	return Fraction(newNumerator, newDenominator);
 }
+
+Fraction operator/(const Fraction& f1, const Fraction& f2)
+{
+	int newNumerator = f1.numerator * f2.denominator;
+	int newDenominator = f1.denominator * f2.numerator;
+	return Fraction(newNumerator, newDenominator);
+}
