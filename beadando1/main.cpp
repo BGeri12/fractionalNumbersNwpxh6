@@ -63,7 +63,19 @@ int main()
 		(fCopy / fDec).FracToString()
 		<< std::endl;
 
-	
+	std::cout << "Original fCopy: " << fCopy.FracToString()
+		<< "\tOriginal fDec: " << fDec.FracToString()
+		<< std::endl;
+	fCopy += fDec;
+	std::cout << "fCopy After += : " << fCopy.FracToString() << std::endl;
+	fCopy -= fDec;
+	std::cout << "fCopy After -= : " << fCopy.FracToString() << std::endl;
+	fCopy *= fDec;
+	std::cout << "fCopy After *= : " << fCopy.FracToString() << std::endl;
+	fCopy /= fDec;
+	std::cout << "fCopy After /= : " << fCopy.FracToString() << std::endl;
+
+
 
 	try
 	{

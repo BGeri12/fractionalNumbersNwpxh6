@@ -81,3 +81,27 @@ Fraction operator/(const Fraction& f1, const Fraction& f2)
 	int newDenominator = f1.denominator * f2.numerator;
 	return Fraction(newNumerator, newDenominator);
 }
+
+Fraction& Fraction::operator+=(const Fraction& f)
+{
+	*this = *this + f;
+	return *this; 
+}
+
+Fraction& Fraction::operator-=(const Fraction& f)
+{
+	*this = *this - f;
+	return *this; 
+}
+
+Fraction& Fraction::operator*=(const Fraction& f)
+{
+	*this = *this * f;
+	return *this; 
+}
+
+Fraction& Fraction::operator/=(const Fraction& f)
+{
+	*this = *this / f;
+	return *this; 
+}
