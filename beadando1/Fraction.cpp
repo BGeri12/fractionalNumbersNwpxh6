@@ -38,12 +38,12 @@ int Fraction::gcd(int a, int b) const
 	return a;
 }
 
-int Fraction::getNumerator() const
+int Fraction::GetNumerator() const
 {
 	return this->numerator;
 }
 
-int Fraction::getDenominator() const
+int Fraction::GetDenominator() const
 {
 	return this->denominator;
 }
