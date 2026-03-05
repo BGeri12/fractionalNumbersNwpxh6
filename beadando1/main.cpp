@@ -49,6 +49,13 @@ int main()
 		(fCopy - fDec).FracToString()
 		<< std::endl;
 
+	std::cout << fCopy.FracToString()
+		<< " * " <<
+		fDec.FracToString()
+		<< " = " <<
+		(fCopy * fDec).FracToString()
+		<< std::endl;
+
 	
 
 	try
