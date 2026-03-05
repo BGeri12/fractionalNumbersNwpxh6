@@ -60,3 +60,10 @@ Fraction operator+(const Fraction& f1, const Fraction& f2)
 	int newNumerator = f1.numerator * f2.denominator + f2.numerator * f1.denominator;
 	return Fraction(newNumerator, commonDenominator);
 }
+
+Fraction operator-(const Fraction& f1, const Fraction& f2)
+{
+	int commonDenominator = f1.denominator * f2.denominator;
+	int newNumerator = f1.numerator * f2.denominator - f2.numerator * f1.denominator;
+	return Fraction(newNumerator, commonDenominator);
+}

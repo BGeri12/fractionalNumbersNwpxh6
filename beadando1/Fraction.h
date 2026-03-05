@@ -11,7 +11,7 @@ public:
 	Fraction(const double decimal);
 
 	friend Fraction operator+(const Fraction& f1, const Fraction& f2);
-	
+	friend Fraction operator-(const Fraction& f1, const Fraction& f2);
 
 	int GetNumerator() const;
 	int GetDenominator() const;
