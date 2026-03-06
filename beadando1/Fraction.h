@@ -22,6 +22,7 @@ public:
 	explicit operator bool() const;
 
 	friend std::ostream& operator<<(std::ostream& os, const Fraction& f);
+	friend std::istream& operator>>(std::istream& is, Fraction& f);
 
 	int GetNumerator() const;
 	int GetDenominator() const;

@@ -96,12 +96,6 @@ Fraction::operator bool() const
 	return this->numerator != 0;
 }
 
-std::ostream& operator<<(std::ostream& os, const Fraction& f)
-{
-	os << f.numerator << "/" << f.denominator;
-	return os;
-}
-
 
 //global fv:
 Fraction operator+(const Fraction& f1, const Fraction& f2)
@@ -156,5 +150,18 @@ bool operator<=(const Fraction& f1, const Fraction& f2)
 bool operator>=(const Fraction& f1, const Fraction& f2)
 {
 	return !(f1 < f2);
+}
+
+std::ostream& operator<<(std::ostream& os, const Fraction& f)
+{
+	os << f.numerator << "/" << f.denominator;
+	return os;
+}
+
+std::istream& operator>>(std::istream& is, Fraction& f)
+{
+	is >> f.numerator;
+	is >> f.denominator;
+	return is;
 }
 

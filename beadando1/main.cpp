@@ -133,6 +133,10 @@ int main()
 		std::cout << f4 << " is false" << std::endl;
 	}
 
+	std::cin >> f4;
+	std::cout << "You entered: " << f4 << std::endl;
+
+	/*
 	try
 	{
 		Fraction fZero(1, 0);
@@ -141,6 +145,6 @@ int main()
 	{
 		std::cerr << "Error: " << e.what() << '\n';
 	}
-
+	*/
 }
 
