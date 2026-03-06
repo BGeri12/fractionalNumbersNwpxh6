@@ -16,6 +16,29 @@ Fraction::Fraction(const int numerator) : Fraction(numerator, 1) {}
 
 Fraction::Fraction(const double decimal) : Fraction(static_cast<int>(decimal * 1000000), 1000000) {}
 
+Fraction::Fraction(const std::string& str) 
+{
+	size_t slashPos = str.find('/');
+
+	if (slashPos != std::string::npos)
+	{
+		std::string numStr = str.substr(0, slashPos);
+		std::string denStr = str.substr(slashPos + 1);
+		this->numerator = std::stoi(numStr);
+		this->denominator = std::stoi(denStr);
+	}
+	else
+	{
+		this->numerator = std::stoi(str);
+		this->denominator = 1;
+	}
+
+	if (this->denominator == 0) 
+		throw std::invalid_argument("A nevezo nem lehet nulla!");
+
+	Simplify();
+}
+
 void Fraction::Simplify()
 {
 	const int commonDivisor = std::gcd(this->numerator, this->denominator);

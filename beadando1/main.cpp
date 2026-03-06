@@ -133,6 +133,13 @@ int main()
 		std::cout << f4 << " is false" << std::endl;
 	}
 
+	Fraction fStr("3/4");
+	std::cout << "Stored form: "
+		<< fStr.GetNumerator()
+		<< "/"
+		<< fStr.GetDenominator()
+		<< std::endl;
+
 	std::cin >> f4;
 	std::cout << "You entered: " << f4 << std::endl;
 
