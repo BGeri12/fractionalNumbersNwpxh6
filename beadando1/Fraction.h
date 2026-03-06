@@ -15,11 +15,6 @@ public:
 	Fraction& operator*=(const Fraction& f);
 	Fraction& operator/=(const Fraction& f);
 
-	friend Fraction operator+(const Fraction& f1, const Fraction& f2);
-	friend Fraction operator-(const Fraction& f1, const Fraction& f2);
-	friend Fraction operator*(const Fraction& f1, const Fraction& f2);
-	friend Fraction operator/(const Fraction& f1, const Fraction& f2);
-
 	int GetNumerator() const;
 	int GetDenominator() const;
 	std::string FracToString() const;
@@ -29,3 +24,8 @@ private:
 	int denominator;
 	void Simplify();
 };
+
+Fraction operator+(const Fraction& f1, const Fraction& f2);
+Fraction operator-(const Fraction& f1, const Fraction& f2);
+Fraction operator*(const Fraction& f1, const Fraction& f2);
+Fraction operator/(const Fraction& f1, const Fraction& f2);

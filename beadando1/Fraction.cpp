@@ -18,7 +18,7 @@ Fraction::Fraction(const double decimal) : Fraction(static_cast<int>(decimal * 1
 
 void Fraction::Simplify()
 {
-	int commonDivisor = std::gcd(this->numerator, this->denominator);
+	const int commonDivisor = std::gcd(this->numerator, this->denominator);
 	this->numerator /= commonDivisor;
 	this->denominator /= commonDivisor;
 }
@@ -78,7 +78,7 @@ Fraction& Fraction::operator/=(const Fraction& f)
 	return *this;
 }
 
-//osztályon kívüli függvények:
+//global fv:
 Fraction operator+(const Fraction& f1, const Fraction& f2)
 {
 	Fraction result{ f1 };

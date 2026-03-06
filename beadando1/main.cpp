@@ -75,6 +75,12 @@ int main()
 	fCopy /= fDec;
 	std::cout << "fCopy After /= : " << fCopy.FracToString() << std::endl;
 
+	Fraction fNegative(-2, -41);
+	std::cout << "Stored form: "
+		<< fNegative.GetNumerator()
+		<< "/"
+		<< fNegative.GetDenominator()
+		<< std::endl;
 
 
 	try
