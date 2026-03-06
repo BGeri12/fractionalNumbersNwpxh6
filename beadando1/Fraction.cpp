@@ -53,55 +53,59 @@ std::string Fraction::FracToString() const
 	return std::to_string(this->numerator) + "/" + std::to_string(this->denominator);
 }
 
-
-Fraction operator+(const Fraction& f1, const Fraction& f2)
-{
-	int commonDenominator = f1.denominator * f2.denominator;
-	int newNumerator = f1.numerator * f2.denominator + f2.numerator * f1.denominator;
-	return Fraction(newNumerator, commonDenominator);
-}
-
-Fraction operator-(const Fraction& f1, const Fraction& f2)
-{
-	int commonDenominator = f1.denominator * f2.denominator;
-	int newNumerator = f1.numerator * f2.denominator - f2.numerator * f1.denominator;
-	return Fraction(newNumerator, commonDenominator);
-}
-
-Fraction operator*(const Fraction& f1, const Fraction& f2)
-{
-	int newNumerator = f1.numerator * f2.numerator;
-	int newDenominator = f1.denominator * f2.denominator;
-	return Fraction(newNumerator, newDenominator);
-}
-
-Fraction operator/(const Fraction& f1, const Fraction& f2)
-{
-	int newNumerator = f1.numerator * f2.denominator;
-	int newDenominator = f1.denominator * f2.numerator;
-	return Fraction(newNumerator, newDenominator);
-}
-
 Fraction& Fraction::operator+=(const Fraction& f)
 {
-	*this = *this + f;
-	return *this; 
+	int commonDenominator = this->denominator * f.denominator;
+	int newNumerator = this->numerator * f.denominator + f.numerator * this->denominator;
+	*this = Fraction(newNumerator, commonDenominator);
+	return *this;
 }
 
 Fraction& Fraction::operator-=(const Fraction& f)
 {
-	*this = *this - f;
-	return *this; 
+	int commonDenominator = this->denominator * f.denominator;
+	int newNumerator = this->numerator * f.denominator - f.numerator * this->denominator;
+	*this = Fraction(newNumerator, commonDenominator);
+	return *this;
 }
 
 Fraction& Fraction::operator*=(const Fraction& f)
 {
-	*this = *this * f;
-	return *this; 
+	int newDenominator = this->denominator * f.denominator;
+	int newNumerator = this->numerator * f.numerator;
+	*this = Fraction(newNumerator, newDenominator);
+	return *this;
 }
 
 Fraction& Fraction::operator/=(const Fraction& f)
 {
-	*this = *this / f;
-	return *this; 
+	int newDenominator = this->denominator * f.numerator;
+	int newNumerator = this->numerator * f.denominator;
+	*this = Fraction(newNumerator, newDenominator);
+	return *this;
+}
+
+//osztályon kívüli függvények:
+Fraction operator+(const Fraction& f1, const Fraction& f2)
+{
+	Fraction result{ f1 };
+	return result += f2;
+}
+
+Fraction operator-(const Fraction& f1, const Fraction& f2)
+{
+	Fraction result{ f1 };
+	return result -= f2;
+}
+
+Fraction operator*(const Fraction& f1, const Fraction& f2)
+{
+	Fraction result{ f1 };
+	return result *= f2;
+}
+
+Fraction operator/(const Fraction& f1, const Fraction& f2)
+{
+	Fraction result{ f1 };
+	return result /= f2;
 }
