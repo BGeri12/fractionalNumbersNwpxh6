@@ -116,6 +116,22 @@ int main()
 	else
 		std::cout << f3.FracToString() << " is less or equal to " << f2.FracToString() << std::endl;
 
+	Fraction f4(5, 2);
+	int egesz = static_cast<int>(f4);
+	std::cout << "Integer part of " << f4.FracToString() << " is: " << egesz << std::endl;
+	double tizedes = static_cast<double>(f4);  
+	std::cout << "Decimal value of " << f4.FracToString() << " is: " << tizedes << std::endl;
+	std::string szoveg = static_cast<std::string>(f4); 
+	std::cout << "String representation of " << f4.FracToString() << " is: " << szoveg << std::endl;
+
+	if (f4)
+	{
+		std::cout << f4.FracToString() << " is true" << std::endl;
+	}
+	else
+	{
+		std::cout << f4.FracToString() << " is false" << std::endl;
+	}
 
 	try
 	{

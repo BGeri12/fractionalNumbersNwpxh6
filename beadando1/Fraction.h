@@ -15,6 +15,11 @@ public:
 	Fraction& operator*=(const Fraction& f);
 	Fraction& operator/=(const Fraction& f);
 
+	explicit operator int() const;
+	explicit operator double() const;
+	explicit operator std::string() const;
+	explicit operator bool() const;
+
 	int GetNumerator() const;
 	int GetDenominator() const;
 	std::string FracToString() const;

@@ -78,6 +78,30 @@ Fraction& Fraction::operator/=(const Fraction& f)
 	return *this;
 }
 
+Fraction::operator int() const
+{
+	return this->numerator / this->denominator;
+}
+
+Fraction::operator double() const
+{
+	return static_cast<double>(this->numerator) / this->denominator;
+}
+
+Fraction::operator std::string() const
+{
+	if (this->denominator == 1) 
+		return std::to_string(this->numerator); 
+
+	return std::to_string(this->numerator) + "/" + std::to_string(this->denominator);
+}
+
+Fraction::operator bool() const
+{
+	return this->numerator != 0;
+}
+
+
 //global fv:
 Fraction operator+(const Fraction& f1, const Fraction& f2)
 {
