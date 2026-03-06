@@ -102,3 +102,34 @@ Fraction operator/(const Fraction& f1, const Fraction& f2)
 	Fraction result{ f1 };
 	return result /= f2;
 }
+
+bool operator==(const Fraction& f1, const Fraction& f2)
+{
+	return f1.GetNumerator() == f2.GetNumerator() && f1.GetDenominator() == f2.GetDenominator();
+}
+
+bool operator!=(const Fraction& f1, const Fraction& f2)
+{
+	return !(f1 == f2);
+}
+
+bool operator<(const Fraction& f1, const Fraction& f2)
+{
+	return f1.GetNumerator() * f2.GetDenominator() < f2.GetNumerator() * f1.GetDenominator();
+}
+
+bool operator>(const Fraction& f1, const Fraction& f2)
+{
+	return f2 < f1;
+}
+
+bool operator<=(const Fraction& f1, const Fraction& f2)
+{
+	return !(f2 < f1);
+}
+
+bool operator>=(const Fraction& f1, const Fraction& f2)
+{
+	return !(f1 < f2);
+}
+

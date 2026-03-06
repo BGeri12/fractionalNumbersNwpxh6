@@ -82,6 +82,40 @@ int main()
 		<< fNegative.GetDenominator()
 		<< std::endl;
 
+	if (10 == fNegative)
+		std::cout << fNegative.FracToString() << " is equal to 10" << std::endl;
+	else
+		std::cout << fNegative.FracToString() << " is not equal to 10" << std::endl;
+
+	
+	Fraction f2(1, 2);
+	Fraction f3(3, 4);
+
+	if (f2 >= f3)
+		std::cout << f2.FracToString() << " is greater or equal to" << f3.FracToString() << std::endl;
+	else
+		std::cout << f2.FracToString() << " is less than " << f3.FracToString() << std::endl;
+
+	if (f2 > f3)
+		std::cout << f2.FracToString() << " is greater than " << f3.FracToString() << std::endl;
+	else
+		std::cout << f2.FracToString() << " is less or equal to " << f3.FracToString() << std::endl;
+
+	if (f2 != f3)
+		std::cout << f2.FracToString() << " is not equal to " << f3.FracToString() << std::endl;
+	else
+		std::cout << f2.FracToString() << " somthing else " << f3.FracToString() << std::endl;
+
+	if (f2 <= f3)
+		std::cout << f3.FracToString() << " is greater or equal to " << f2.FracToString() << std::endl;
+	else
+		std::cout << f3.FracToString() << " is less than " << f2.FracToString() << std::endl;
+
+	if (f2 < f3)
+		std::cout << f3.FracToString() << " is greater than " << f2.FracToString() << std::endl;
+	else
+		std::cout << f3.FracToString() << " is less or equal to " << f2.FracToString() << std::endl;
+
 
 	try
 	{
