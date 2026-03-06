@@ -33,11 +33,6 @@ int Fraction::GetDenominator() const
 	return this->denominator;
 }
 
-std::string Fraction::FracToString() const
-{
-	return std::to_string(this->numerator) + "/" + std::to_string(this->denominator);
-}
-
 Fraction& Fraction::operator+=(const Fraction& f)
 {
 	int newNumerator = this->numerator * f.denominator + f.numerator * this->denominator;
@@ -99,6 +94,12 @@ Fraction::operator std::string() const
 Fraction::operator bool() const
 {
 	return this->numerator != 0;
+}
+
+std::ostream& operator<<(std::ostream& os, const Fraction& f)
+{
+	os << f.numerator << "/" << f.denominator;
+	return os;
 }
 
 

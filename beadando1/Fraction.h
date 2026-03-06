@@ -1,5 +1,6 @@
 #pragma once
-#include <string>
+#include<string>
+#include <iostream>
 
 class Fraction
 {
@@ -20,9 +21,10 @@ public:
 	explicit operator std::string() const;
 	explicit operator bool() const;
 
+	friend std::ostream& operator<<(std::ostream& os, const Fraction& f);
+
 	int GetNumerator() const;
 	int GetDenominator() const;
-	std::string FracToString() const;
 
 private:
 	int numerator;

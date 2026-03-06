@@ -35,45 +35,45 @@ int main()
 
 	Fraction fAdd = fCopy + fDec;
 
-	std::cout << fCopy.FracToString()
+	std::cout << fCopy
 		<< " + " <<
-		fDec.FracToString()
+		fDec
 		<< " = " << 
-		fAdd.FracToString()
+		fAdd
 		<< std::endl;
 
-	std::cout << fCopy.FracToString()
+	std::cout << fCopy
 		<< " - " <<
-		fDec.FracToString()
+		fDec
 		<< " = " <<
-		(fCopy - fDec).FracToString()
+		(fCopy - fDec)
 		<< std::endl;
 
-	std::cout << fCopy.FracToString()
+	std::cout << fCopy
 		<< " * " <<
-		fDec.FracToString()
+		fDec
 		<< " = " <<
-		(fCopy * fDec).FracToString()
+		(fCopy * fDec)
 		<< std::endl;
 
-	std::cout << fCopy.FracToString()
+	std::cout << fCopy
 		<< " / " <<
-		fDec.FracToString()
+		fDec
 		<< " = " <<
-		(fCopy / fDec).FracToString()
+		(fCopy / fDec)
 		<< std::endl;
 
-	std::cout << "Original fCopy: " << fCopy.FracToString()
-		<< "\tOriginal fDec: " << fDec.FracToString()
+	std::cout << "Original fCopy: " << fCopy
+		<< "\tOriginal fDec: " << fDec
 		<< std::endl;
 	fCopy += fDec;
-	std::cout << "fCopy After += : " << fCopy.FracToString() << std::endl;
+	std::cout << "fCopy After += : " << fCopy << std::endl;
 	fCopy -= fDec;
-	std::cout << "fCopy After -= : " << fCopy.FracToString() << std::endl;
+	std::cout << "fCopy After -= : " << fCopy<< std::endl;
 	fCopy *= fDec;
-	std::cout << "fCopy After *= : " << fCopy.FracToString() << std::endl;
+	std::cout << "fCopy After *= : " << fCopy<< std::endl;
 	fCopy /= fDec;
-	std::cout << "fCopy After /= : " << fCopy.FracToString() << std::endl;
+	std::cout << "fCopy After /= : " << fCopy<< std::endl;
 
 	Fraction fNegative(-2, -41);
 	std::cout << "Stored form: "
@@ -83,54 +83,54 @@ int main()
 		<< std::endl;
 
 	if (10 == fNegative)
-		std::cout << fNegative.FracToString() << " is equal to 10" << std::endl;
+		std::cout << fNegative << " is equal to 10" << std::endl;
 	else
-		std::cout << fNegative.FracToString() << " is not equal to 10" << std::endl;
+		std::cout << fNegative << " is not equal to 10" << std::endl;
 
 	
 	Fraction f2(1, 2);
 	Fraction f3(3, 4);
 
 	if (f2 >= f3)
-		std::cout << f2.FracToString() << " is greater or equal to" << f3.FracToString() << std::endl;
+		std::cout << f2<< " is greater or equal to" << f3 << std::endl;
 	else
-		std::cout << f2.FracToString() << " is less than " << f3.FracToString() << std::endl;
+		std::cout << f2 << " is less than " << f3 << std::endl;
 
 	if (f2 > f3)
-		std::cout << f2.FracToString() << " is greater than " << f3.FracToString() << std::endl;
+		std::cout << f2 << " is greater than " << f3 << std::endl;
 	else
-		std::cout << f2.FracToString() << " is less or equal to " << f3.FracToString() << std::endl;
+		std::cout << f2 << " is less or equal to " << f3 << std::endl;
 
 	if (f2 != f3)
-		std::cout << f2.FracToString() << " is not equal to " << f3.FracToString() << std::endl;
+		std::cout << f2 << " is not equal to " << f3 << std::endl;
 	else
-		std::cout << f2.FracToString() << " somthing else " << f3.FracToString() << std::endl;
+		std::cout << f2 << " somthing else " << f3 << std::endl;
 
 	if (f2 <= f3)
-		std::cout << f3.FracToString() << " is greater or equal to " << f2.FracToString() << std::endl;
+		std::cout << f3 << " is greater or equal to " << f2 << std::endl;
 	else
-		std::cout << f3.FracToString() << " is less than " << f2.FracToString() << std::endl;
+		std::cout << f3 << " is less than " << f2  << std::endl;
 
 	if (f2 < f3)
-		std::cout << f3.FracToString() << " is greater than " << f2.FracToString() << std::endl;
+		std::cout << f3 << " is greater than " << f2 << std::endl;
 	else
-		std::cout << f3.FracToString() << " is less or equal to " << f2.FracToString() << std::endl;
+		std::cout << f3 << " is less or equal to " << f2 << std::endl;
 
 	Fraction f4(5, 2);
 	int egesz = static_cast<int>(f4);
-	std::cout << "Integer part of " << f4.FracToString() << " is: " << egesz << std::endl;
+	std::cout << "Integer part of " << f4 << " is: " << egesz << std::endl;
 	double tizedes = static_cast<double>(f4);  
-	std::cout << "Decimal value of " << f4.FracToString() << " is: " << tizedes << std::endl;
+	std::cout << "Decimal value of " << f4 << " is: " << tizedes << std::endl;
 	std::string szoveg = static_cast<std::string>(f4); 
-	std::cout << "String representation of " << f4.FracToString() << " is: " << szoveg << std::endl;
+	std::cout << "String representation of " << f4 << " is: " << szoveg << std::endl;
 
 	if (f4)
 	{
-		std::cout << f4.FracToString() << " is true" << std::endl;
+		std::cout << f4 << " is true" << std::endl;
 	}
 	else
 	{
-		std::cout << f4.FracToString() << " is false" << std::endl;
+		std::cout << f4 << " is false" << std::endl;
 	}
 
 	try
@@ -141,5 +141,6 @@ int main()
 	{
 		std::cerr << "Error: " << e.what() << '\n';
 	}
+
 }
 
