@@ -7,7 +7,7 @@ class Fraction
 public:
 	Fraction(const int numerator);
 	Fraction(const int numerator, const int denominator);
-	Fraction(const Fraction& fraction);
+	Fraction(const Fraction& fraction) = default;
 	Fraction(const double decimal);
 
 	Fraction& operator+=(const Fraction& f);
