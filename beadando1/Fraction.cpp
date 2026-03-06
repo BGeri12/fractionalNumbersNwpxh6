@@ -8,9 +8,7 @@ Fraction::Fraction(const int numerator, const int denominator)
 	if (this->denominator == 0)
 		throw std::invalid_argument("The denominator cannot be zero !");
 
-	int commonDivisor = this->gcd(this->numerator, this->denominator);
-	this->numerator /= commonDivisor;
-	this->denominator /= commonDivisor;
+	Simplify();
 }
 
 Fraction::Fraction(const int numerator) : Fraction(numerator, 1) {}
@@ -21,7 +19,14 @@ Fraction::Fraction(const Fraction& fraction)
 
 Fraction::Fraction(const double decimal) : Fraction(static_cast<int>(decimal * 1000000), 1000000) {}
 
-int Fraction::gcd(int a, int b) const
+void Fraction::Simplify()
+{
+	int commonDivisor = this->GCD(this->numerator, this->denominator);
+	this->numerator /= commonDivisor;
+	this->denominator /= commonDivisor;
+}
+
+int Fraction::GCD(int a, int b) const
 {
 	if (a < 0)
 		a *= -1;
@@ -55,9 +60,11 @@ std::string Fraction::FracToString() const
 
 Fraction& Fraction::operator+=(const Fraction& f)
 {
-	int commonDenominator = this->denominator * f.denominator;
 	int newNumerator = this->numerator * f.denominator + f.numerator * this->denominator;
-	*this = Fraction(newNumerator, commonDenominator);
+	int commonDenominator = this->denominator * f.denominator;
+	this->numerator = newNumerator;
+	this->denominator = commonDenominator;
+	this->Simplify();
 	return *this;
 }
 
@@ -65,23 +72,29 @@ Fraction& Fraction::operator-=(const Fraction& f)
 {
 	int commonDenominator = this->denominator * f.denominator;
 	int newNumerator = this->numerator * f.denominator - f.numerator * this->denominator;
-	*this = Fraction(newNumerator, commonDenominator);
+	this->numerator = newNumerator;
+	this->denominator = commonDenominator;
+	this->Simplify();
 	return *this;
 }
 
 Fraction& Fraction::operator*=(const Fraction& f)
 {
-	int newDenominator = this->denominator * f.denominator;
+	int commonDenominator = this->denominator * f.denominator;
 	int newNumerator = this->numerator * f.numerator;
-	*this = Fraction(newNumerator, newDenominator);
+	this->numerator = newNumerator;
+	this->denominator = commonDenominator;
+	this->Simplify();
 	return *this;
 }
 
 Fraction& Fraction::operator/=(const Fraction& f)
 {
-	int newDenominator = this->denominator * f.numerator;
+	int commonDenominator = this->denominator * f.numerator;
 	int newNumerator = this->numerator * f.denominator;
-	*this = Fraction(newNumerator, newDenominator);
+	this->numerator = newNumerator;
+	this->denominator = commonDenominator;
+	this->Simplify();
 	return *this;
 }
 

@@ -28,5 +28,6 @@ private:
 	int numerator;
 	int denominator;
 
-	int gcd(int a, int b) const;
+	int GCD(int a, int b) const;
+	void Simplify();
 };
