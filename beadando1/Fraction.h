@@ -27,7 +27,5 @@ public:
 private:
 	int numerator;
 	int denominator;
-
-	int GCD(int a, int b) const;
 	void Simplify();
 };

@@ -1,5 +1,6 @@
 #include "Fraction.h"
 #include <stdexcept>
+#include <numeric>
 
 Fraction::Fraction(const int numerator, const int denominator)
 	: numerator{ denominator < 0 ? -numerator : numerator }
@@ -21,26 +22,9 @@ Fraction::Fraction(const double decimal) : Fraction(static_cast<int>(decimal * 1
 
 void Fraction::Simplify()
 {
-	int commonDivisor = this->GCD(this->numerator, this->denominator);
+	int commonDivisor = std::gcd(this->numerator, this->denominator);
 	this->numerator /= commonDivisor;
 	this->denominator /= commonDivisor;
-}
-
-int Fraction::GCD(int a, int b) const
-{
-	if (a < 0)
-		a *= -1;
-
-	if (b < 0)
-		b *= -1;
-
-	while (b != 0)
-	{
-		int temp = a % b;
-		a = b;
-		b = temp;
-	}
-	return a;
 }
 
 int Fraction::GetNumerator() const
@@ -70,8 +54,8 @@ Fraction& Fraction::operator+=(const Fraction& f)
 
 Fraction& Fraction::operator-=(const Fraction& f)
 {
-	int commonDenominator = this->denominator * f.denominator;
 	int newNumerator = this->numerator * f.denominator - f.numerator * this->denominator;
+	int commonDenominator = this->denominator * f.denominator;
 	this->numerator = newNumerator;
 	this->denominator = commonDenominator;
 	this->Simplify();
@@ -80,8 +64,8 @@ Fraction& Fraction::operator-=(const Fraction& f)
 
 Fraction& Fraction::operator*=(const Fraction& f)
 {
-	int commonDenominator = this->denominator * f.denominator;
 	int newNumerator = this->numerator * f.numerator;
+	int commonDenominator = this->denominator * f.denominator;
 	this->numerator = newNumerator;
 	this->denominator = commonDenominator;
 	this->Simplify();
@@ -90,8 +74,8 @@ Fraction& Fraction::operator*=(const Fraction& f)
 
 Fraction& Fraction::operator/=(const Fraction& f)
 {
-	int commonDenominator = this->denominator * f.numerator;
 	int newNumerator = this->numerator * f.denominator;
+	int commonDenominator = this->denominator * f.numerator;
 	this->numerator = newNumerator;
 	this->denominator = commonDenominator;
 	this->Simplify();

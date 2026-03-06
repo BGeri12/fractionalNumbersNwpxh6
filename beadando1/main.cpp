@@ -1,4 +1,4 @@
-#include <iostream>*
+#include <iostream>
 #include "Fraction.h"
 
 int main()
