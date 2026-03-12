@@ -86,12 +86,8 @@ Fraction& Fraction::operator*=(const Fraction& f)
 
 Fraction& Fraction::operator/=(const Fraction& f)
 {
-	int newNumerator = this->numerator * f.denominator;
-	int commonDenominator = this->denominator * f.numerator;
-	this->numerator = newNumerator;
-	this->denominator = commonDenominator;
-	this->Simplify();
-	return *this;
+	Fraction reciprocal_f(f.denominator, f.numerator);
+	return *this *= reciprocal_f;
 }
 
 Fraction::operator int() const
