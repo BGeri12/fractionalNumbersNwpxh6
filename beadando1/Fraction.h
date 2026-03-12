@@ -10,7 +10,8 @@ public:
 	Fraction(const int numerator, const int denominator);
 	Fraction(const Fraction& fraction) = default;
 	Fraction(const double decimal);
-	Fraction(const std::string& str);
+
+	static Fraction Parse(const std::string& str);
 
 	Fraction& operator+=(const Fraction& f);
 	Fraction& operator-=(const Fraction& f);

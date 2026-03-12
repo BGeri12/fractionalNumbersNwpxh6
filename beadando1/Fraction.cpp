@@ -16,27 +16,43 @@ Fraction::Fraction(const int numerator) : Fraction(numerator, 1) {}
 
 Fraction::Fraction(const double decimal) : Fraction(static_cast<int>(decimal * 1000000), 1000000) {}
 
-Fraction::Fraction(const std::string& str) 
+Fraction Fraction::Parse(const std::string& str) 
 {
 	size_t slashPos = str.find('/');
+	std::string numStr, denStr;
 
 	if (slashPos != std::string::npos)
 	{
-		std::string numStr = str.substr(0, slashPos);
-		std::string denStr = str.substr(slashPos + 1);
-		this->numerator = std::stoi(numStr);
-		this->denominator = std::stoi(denStr);
+		numStr = str.substr(0, slashPos);
+		denStr = str.substr(slashPos + 1);
 	}
 	else
 	{
-		this->numerator = std::stoi(str);
-		this->denominator = 1;
+		numStr = str;
+		denStr = "1";
 	}
 
-	if (this->denominator == 0) 
-		throw std::invalid_argument("A nevezo nem lehet nulla!");
+	int parsedNum = 0;
+	int parsedDen = 1;
 
-	Simplify();
+	try
+	{
+		size_t numParsedLen = 0;
+		size_t denParsedLen = 0;
+
+		parsedNum = std::stoi(numStr, &numParsedLen);
+		parsedDen = std::stoi(denStr, &denParsedLen);
+
+		if (numParsedLen != numStr.length() || denParsedLen != denStr.length()) {
+			throw std::invalid_argument("Incorrect non-numeric characters in fraction !");
+		}
+	}
+	catch (const std::exception& e)
+	{
+		throw std::invalid_argument("The specified text cannot be formatted!");
+	}
+
+	return Fraction(parsedNum, parsedDen);
 }
 
 void Fraction::Simplify()
