@@ -72,10 +72,8 @@ Fraction& Fraction::operator+=(const Fraction& f)
 
 Fraction& Fraction::operator-=(const Fraction& f)
 {
-	this->numerator = this->numerator * f.denominator - f.numerator * this->denominator;
-	this->denominator = this->denominator * f.denominator;
-	this->Simplify();
-	return *this;
+	Fraction negative_f(-f.numerator, f.denominator);
+	return *this += negative_f;
 }
 
 Fraction& Fraction::operator*=(const Fraction& f)
