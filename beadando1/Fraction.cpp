@@ -63,31 +63,25 @@ void Fraction::Simplify()
 }
 
 Fraction& Fraction::operator+=(const Fraction& f)
-{
-	int newNumerator = this->numerator * f.denominator + f.numerator * this->denominator;
-	int commonDenominator = this->denominator * f.denominator;
-	this->numerator = newNumerator;
-	this->denominator = commonDenominator;
+{ 
+	this->numerator = this->numerator * f.denominator + f.numerator * this->denominator;
+	this->denominator = this->denominator * f.denominator;
 	this->Simplify();
 	return *this;
 }
 
 Fraction& Fraction::operator-=(const Fraction& f)
 {
-	int newNumerator = this->numerator * f.denominator - f.numerator * this->denominator;
-	int commonDenominator = this->denominator * f.denominator;
-	this->numerator = newNumerator;
-	this->denominator = commonDenominator;
+	this->numerator = this->numerator * f.denominator - f.numerator * this->denominator;
+	this->denominator = this->denominator * f.denominator;
 	this->Simplify();
 	return *this;
 }
 
 Fraction& Fraction::operator*=(const Fraction& f)
 {
-	int newNumerator = this->numerator * f.numerator;
-	int commonDenominator = this->denominator * f.denominator;
-	this->numerator = newNumerator;
-	this->denominator = commonDenominator;
+	this->numerator = this->numerator * f.numerator;
+	this->denominator = this->denominator * f.denominator;
 	this->Simplify();
 	return *this;
 }

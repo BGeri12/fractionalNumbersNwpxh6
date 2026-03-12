@@ -123,7 +123,7 @@ int main()
 		std::cout << f4 << " is false" << std::endl;
 	}
 
-	Fraction fStr = Fraction::Parse("3/4aa");
+	Fraction fStr = Fraction::Parse("3/4");
 	std::cout << "Stored form: "
 		<< fStr
 		<< std::endl;
