@@ -22,11 +22,10 @@ public:
 	explicit operator std::string() const;
 	explicit operator bool() const;
 
+	friend bool operator==(const Fraction& f1, const Fraction& f2);
+	friend bool operator<(const Fraction& f1, const Fraction& f2);
 	friend std::ostream& operator<<(std::ostream& os, const Fraction& f);
 	friend std::istream& operator>>(std::istream& is, Fraction& f);
-
-	int GetNumerator() const;
-	int GetDenominator() const;
 
 private:
 	int numerator;
@@ -38,9 +37,8 @@ Fraction operator+(const Fraction& f1, const Fraction& f2);
 Fraction operator-(const Fraction& f1, const Fraction& f2);
 Fraction operator*(const Fraction& f1, const Fraction& f2);
 Fraction operator/(const Fraction& f1, const Fraction& f2);
-bool operator==(const Fraction& f1, const Fraction& f2);
+
 bool operator!=(const Fraction& f1, const Fraction& f2);
-bool operator<(const Fraction& f1, const Fraction& f2);
 bool operator>(const Fraction& f1, const Fraction& f2);
 bool operator<=(const Fraction& f1, const Fraction& f2);
 bool operator>=(const Fraction& f1, const Fraction& f2);

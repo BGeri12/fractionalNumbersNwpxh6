@@ -5,32 +5,24 @@ int main()
 {
 	Fraction* p1 = new Fraction(10, -5);
 	std::cout << "Stored form: "
-		<< (*p1).GetNumerator()
-		<< "/"
-		<< p1->GetDenominator()
+		<< (*p1)
 		<< std::endl;
 
 	Fraction f1(100);
 	std::cout << "Stored form: "
-		<< f1.GetNumerator()
-		<< "/"
-		<< f1.GetDenominator()
+		<< f1
 		<< std::endl;
 
 	Fraction fCopy(*p1);
 	std::cout << "Stored form: "
-		<< fCopy.GetNumerator()
-		<< "/"
-		<< fCopy.GetDenominator()
+		<< fCopy
 		<< std::endl;
 
 	delete p1;
 
 	Fraction fDec(0.75);
 	std::cout << "Stored form: "
-		<< fDec.GetNumerator()
-		<< "/"
-		<< fDec.GetDenominator()
+		<< fDec
 		<< std::endl;
 
 	Fraction fAdd = fCopy + fDec;
@@ -77,9 +69,7 @@ int main()
 
 	Fraction fNegative(-2, -41);
 	std::cout << "Stored form: "
-		<< fNegative.GetNumerator()
-		<< "/"
-		<< fNegative.GetDenominator()
+		<< fNegative
 		<< std::endl;
 
 	if (10 == fNegative)
@@ -135,9 +125,7 @@ int main()
 
 	Fraction fStr("3/4");
 	std::cout << "Stored form: "
-		<< fStr.GetNumerator()
-		<< "/"
-		<< fStr.GetDenominator()
+		<< fStr
 		<< std::endl;
 
 	std::cin >> f4;

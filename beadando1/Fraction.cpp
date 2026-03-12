@@ -46,16 +46,6 @@ void Fraction::Simplify()
 	this->denominator /= commonDivisor;
 }
 
-int Fraction::GetNumerator() const
-{
-	return this->numerator;
-}
-
-int Fraction::GetDenominator() const
-{
-	return this->denominator;
-}
-
 Fraction& Fraction::operator+=(const Fraction& f)
 {
 	int newNumerator = this->numerator * f.denominator + f.numerator * this->denominator;
@@ -147,7 +137,7 @@ Fraction operator/(const Fraction& f1, const Fraction& f2)
 
 bool operator==(const Fraction& f1, const Fraction& f2)
 {
-	return f1.GetNumerator() == f2.GetNumerator() && f1.GetDenominator() == f2.GetDenominator();
+	return f1.numerator == f2.numerator && f1.denominator == f2.denominator;
 }
 
 bool operator!=(const Fraction& f1, const Fraction& f2)
@@ -157,7 +147,7 @@ bool operator!=(const Fraction& f1, const Fraction& f2)
 
 bool operator<(const Fraction& f1, const Fraction& f2)
 {
-	return f1.GetNumerator() * f2.GetDenominator() < f2.GetNumerator() * f1.GetDenominator();
+	return f1.numerator * f2.denominator < f2.numerator * f1.denominator;
 }
 
 bool operator>(const Fraction& f1, const Fraction& f2)
