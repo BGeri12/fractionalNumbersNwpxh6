@@ -7,7 +7,7 @@ Fraction::Fraction(const int numerator, const int denominator)
 	: numerator{ denominator < 0 ? -numerator : numerator }
 	, denominator{ denominator < 0 ? -denominator : denominator}
 {
-	if (this->denominator == 0)
+	if (denominator == 0)
 		throw std::invalid_argument("The denominator cannot be zero !");
 
 	Simplify();
@@ -19,16 +19,16 @@ Fraction::Fraction(const double decimal) : Fraction(static_cast<int>(decimal * 1
 
 void Fraction::Simplify()
 {
-	const int commonDivisor = std::gcd(this->numerator, this->denominator);
-	this->numerator /= commonDivisor;
-	this->denominator /= commonDivisor;
+	const int commonDivisor = std::gcd(numerator, denominator);
+	numerator /= commonDivisor;
+	denominator /= commonDivisor;
 }
 
 Fraction& Fraction::operator+=(const Fraction& f)
 { 
-	this->numerator = this->numerator * f.denominator + f.numerator * this->denominator;
-	this->denominator = this->denominator * f.denominator;
-	this->Simplify();
+	numerator = numerator * f.denominator + f.numerator * denominator;
+	denominator = denominator * f.denominator;
+	Simplify();
 	return *this;
 }
 
@@ -40,9 +40,9 @@ Fraction& Fraction::operator-=(const Fraction& f)
 
 Fraction& Fraction::operator*=(const Fraction& f)
 {
-	this->numerator = this->numerator * f.numerator;
-	this->denominator = this->denominator * f.denominator;
-	this->Simplify();
+	numerator = numerator * f.numerator;
+	denominator = denominator * f.denominator;
+	Simplify();
 	return *this;
 }
 
@@ -54,20 +54,20 @@ Fraction& Fraction::operator/=(const Fraction& f)
 
 Fraction::operator int() const
 {
-	return this->numerator / this->denominator;
+	return numerator / denominator;
 }
 
 Fraction::operator double() const
 {
-	return static_cast<double>(this->numerator) / this->denominator;
+	return static_cast<double>(numerator) / denominator;
 }
 
 Fraction::operator std::string() const
 {
-	if (this->denominator == 1) 
-		return std::to_string(this->numerator); 
+	if (denominator == 1) 
+		return std::to_string(numerator); 
 
-	return std::to_string(this->numerator) + "/" + std::to_string(this->denominator);
+	return std::to_string(numerator) + "/" + std::to_string(denominator);
 }
 
 Fraction::operator bool() const
