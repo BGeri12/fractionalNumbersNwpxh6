@@ -1,6 +1,7 @@
 #include "Fraction.h"
 #include <stdexcept>
 #include <numeric>
+#include <sstream>
 
 Fraction::Fraction(const int numerator, const int denominator)
 	: numerator{ denominator < 0 ? -numerator : numerator }
@@ -15,45 +16,6 @@ Fraction::Fraction(const int numerator, const int denominator)
 Fraction::Fraction(const int numerator) : Fraction(numerator, 1) {}
 
 Fraction::Fraction(const double decimal) : Fraction(static_cast<int>(decimal * 1000000), 1000000) {}
-
-Fraction Fraction::Parse(const std::string& str) 
-{
-	size_t slashPos = str.find('/');
-	std::string numStr, denStr;
-
-	if (slashPos != std::string::npos)
-	{
-		numStr = str.substr(0, slashPos);
-		denStr = str.substr(slashPos + 1);
-	}
-	else
-	{
-		numStr = str;
-		denStr = "1";
-	}
-
-	int parsedNum = 0;
-	int parsedDen = 1;
-
-	try
-	{
-		size_t numParsedLen = 0;
-		size_t denParsedLen = 0;
-
-		parsedNum = std::stoi(numStr, &numParsedLen);
-		parsedDen = std::stoi(denStr, &denParsedLen);
-
-		if (numParsedLen != numStr.length() || denParsedLen != denStr.length()) {
-			throw std::invalid_argument("Incorrect non-numeric characters in fraction !");
-		}
-	}
-	catch (const std::exception&)
-	{
-		throw std::invalid_argument("The specified text cannot be formatted!");
-	}
-
-	return Fraction(parsedNum, parsedDen);
-}
 
 void Fraction::Simplify()
 {
@@ -198,5 +160,21 @@ std::istream& operator>>(std::istream& is, Fraction& f)
 		is.setstate(std::ios::failbit);
 
 	return is;
+}
+
+Fraction Fraction::Parse(const std::string& input)
+{
+	// megfelelõ formátum: "num/den"
+
+	std::istringstream iss{ input };
+	int num, den;
+	char separator;
+
+	iss >> num >> separator >> den;
+
+	if (iss.fail() || separator != '/')
+		throw std::invalid_argument(input + " was not suitable!");
+
+	return Fraction{num, den};
 }
 

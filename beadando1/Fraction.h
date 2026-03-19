@@ -11,8 +11,6 @@ public:
 	Fraction(const Fraction& fraction) = default;
 	Fraction(const double decimal);
 
-	static Fraction Parse(const std::string& str);
-
 	Fraction& operator+=(const Fraction& f);
 	Fraction& operator-=(const Fraction& f);
 	Fraction& operator*=(const Fraction& f);
@@ -27,6 +25,8 @@ public:
 	friend bool operator<(const Fraction& f1, const Fraction& f2);
 	friend std::ostream& operator<<(std::ostream& os, const Fraction& f);
 	friend std::istream& operator>>(std::istream& is, Fraction& f);
+
+	static Fraction Parse(const std::string& input);
 
 private:
 	int numerator;

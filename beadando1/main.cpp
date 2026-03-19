@@ -123,11 +123,18 @@ int main()
 		std::cout << f4 << " is false" << std::endl;
 	}
 
-	Fraction fStr = Fraction::Parse("3/4");
-	std::cout << "Stored form: "
-		<< fStr
-		<< std::endl;
-
+	try
+	{
+		Fraction fStr = Fraction::Parse("10/1");
+		std::cout << "String parse stored form: "
+			<< fStr
+			<< std::endl;
+	}
+	catch (const std::invalid_argument& e)
+	{
+		std::cerr << "Error: " << e.what() << '\n';
+	}
+	
 	std::cout << "Type a fraction into the console: ";
 
 	if (std::cin >> f4) {
