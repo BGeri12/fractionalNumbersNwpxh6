@@ -72,12 +72,12 @@ int main()
 		<< fNegative
 		<< std::endl;
 
-	if (10 == fNegative)
+	
+	if (fNegative == 10)
 		std::cout << fNegative << " is equal to 10" << std::endl;
 	else
 		std::cout << fNegative << " is not equal to 10" << std::endl;
 
-	
 	Fraction f2(1, 2);
 	Fraction f3(3, 4);
 
@@ -125,7 +125,7 @@ int main()
 
 	try
 	{
-		Fraction fStr = Fraction::Parse("10/1");
+		Fraction fStr = Fraction::Parse("10/15");
 		std::cout << "String parse stored form: "
 			<< fStr
 			<< std::endl;

@@ -11,20 +11,28 @@ public:
 	Fraction(const Fraction& fraction) = default;
 	Fraction(const double decimal);
 
-	Fraction& operator+=(const Fraction& f);
-	Fraction& operator-=(const Fraction& f);
-	Fraction& operator*=(const Fraction& f);
-	Fraction& operator/=(const Fraction& f);
+	Fraction& operator+=(const Fraction& other);
+	Fraction operator+(const Fraction& other) const;
 	Fraction operator-() const;
+	Fraction& operator-=(const Fraction& other);
+	Fraction operator-(const Fraction& other) const;
+	Fraction& operator*=(const Fraction& other);
+	Fraction operator*(const Fraction& other) const;
+	Fraction& operator/=(const Fraction& other);
+	Fraction operator/(const Fraction& other) const;
+
+	bool operator==(const Fraction& other) const;
+	bool operator!=(const Fraction& other) const;
+	bool operator<(const Fraction& other) const;
+	bool operator>(const Fraction& other) const;
+	bool operator<=(const Fraction& other) const;
+	bool operator>=(const Fraction& other) const;
 
 	explicit operator int() const;
 	explicit operator double() const;
 	explicit operator std::string() const;
 	explicit operator bool() const;
 
-	friend bool operator==(const Fraction& f1, const Fraction& f2);
-	friend bool operator<(const Fraction& f1, const Fraction& f2);
-	friend std::ostream& operator<<(std::ostream& os, const Fraction& f);
 	friend std::istream& operator>>(std::istream& is, Fraction& f);
 
 	static Fraction Parse(const std::string& input);
@@ -35,12 +43,4 @@ private:
 	void Simplify();
 };
 
-Fraction operator+(const Fraction& f1, const Fraction& f2);
-Fraction operator-(const Fraction& f1, const Fraction& f2);
-Fraction operator*(const Fraction& f1, const Fraction& f2);
-Fraction operator/(const Fraction& f1, const Fraction& f2);
-
-bool operator!=(const Fraction& f1, const Fraction& f2);
-bool operator>(const Fraction& f1, const Fraction& f2);
-bool operator<=(const Fraction& f1, const Fraction& f2);
-bool operator>=(const Fraction& f1, const Fraction& f2);
+std::ostream& operator<<(std::ostream& os, const Fraction& f);

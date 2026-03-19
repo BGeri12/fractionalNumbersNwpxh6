@@ -24,12 +24,18 @@ void Fraction::Simplify()
 	denominator /= commonDivisor;
 }
 
-Fraction& Fraction::operator+=(const Fraction& f)
+Fraction& Fraction::operator+=(const Fraction& other)
 { 
-	numerator = numerator * f.denominator + f.numerator * denominator;
-	denominator = denominator * f.denominator;
+	numerator = numerator * other.denominator + other.numerator * denominator;
+	denominator = denominator * other.denominator;
 	Simplify();
 	return *this;
+}
+
+Fraction Fraction::operator+(const Fraction& other) const
+{
+	Fraction result { *this };
+	return result += other;
 }
 
 Fraction Fraction::operator-() const
@@ -37,28 +43,51 @@ Fraction Fraction::operator-() const
 	return Fraction{ -numerator, denominator };
 }
 
-Fraction& Fraction::operator-=(const Fraction& f)
+Fraction& Fraction::operator-=(const Fraction& other)
 {
-	return *this += -f;
+	return *this += -other;
 }
 
-Fraction& Fraction::operator*=(const Fraction& f)
+Fraction Fraction::operator-(const Fraction& other) const
 {
-	numerator = numerator * f.numerator;
-	denominator = denominator * f.denominator;
+	Fraction result{ *this };
+	return result -= other;
+}
+
+Fraction& Fraction::operator*=(const Fraction& other)
+{
+	numerator = numerator * other.numerator;
+	denominator = denominator * other.denominator;
 	Simplify();
 	return *this;
 }
 
-Fraction& Fraction::operator/=(const Fraction& f)
+Fraction Fraction::operator*(const Fraction& other) const
 {
-	Fraction reciprocal_f{f.denominator, f.numerator};
+	Fraction result{ *this };
+	return result *= other;
+}
+
+Fraction& Fraction::operator/=(const Fraction& other)
+{
+	Fraction reciprocal_f{other.denominator, other.numerator};
 	return *this *= reciprocal_f;
 }
 
-Fraction::operator int() const
+Fraction Fraction::operator/(const Fraction& other) const
 {
-	return numerator / denominator;
+	Fraction result{ *this };
+	return result /= other;
+}
+
+bool Fraction::operator==(const Fraction& other) const
+{
+	return numerator == other.numerator && denominator == other.denominator;
+}
+
+bool Fraction::operator!=(const Fraction& other) const
+{
+	return !(*this == other);
 }
 
 Fraction::operator double() const
@@ -66,12 +95,29 @@ Fraction::operator double() const
 	return static_cast<double>(numerator) / denominator;
 }
 
-Fraction::operator std::string() const
+bool Fraction::operator<(const Fraction& other) const
 {
-	if (denominator == 1) 
-		return std::to_string(numerator); 
+	return static_cast<double>(*this) < static_cast<double>(other);
+}
 
-	return std::to_string(numerator) + "/" + std::to_string(denominator);
+bool Fraction::operator>(const Fraction& other) const
+{
+	return other < *this;
+}
+
+bool Fraction::operator<=(const Fraction& other) const
+{
+	return !(other < *this);
+}
+
+bool Fraction::operator>=(const Fraction& other) const
+{
+	return !(*this < other);
+}
+
+Fraction::operator int() const
+{
+	return numerator / denominator;
 }
 
 Fraction::operator bool() const
@@ -79,65 +125,14 @@ Fraction::operator bool() const
 	return numerator != 0;
 }
 
-
-//global fv:
-Fraction operator+(const Fraction& f1, const Fraction& f2)
+Fraction::operator std::string() const
 {
-	Fraction result{ f1 };
-	return result += f2;
-}
-
-Fraction operator-(const Fraction& f1, const Fraction& f2)
-{
-	Fraction result{ f1 };
-	return result -= f2;
-}
-
-Fraction operator*(const Fraction& f1, const Fraction& f2)
-{
-	Fraction result{ f1 };
-	return result *= f2;
-}
-
-Fraction operator/(const Fraction& f1, const Fraction& f2)
-{
-	Fraction result{ f1 };
-	return result /= f2;
-}
-
-bool operator==(const Fraction& f1, const Fraction& f2)
-{
-	return f1.numerator == f2.numerator && f1.denominator == f2.denominator;
-}
-
-bool operator!=(const Fraction& f1, const Fraction& f2)
-{
-	return !(f1 == f2);
-}
-
-bool operator<(const Fraction& f1, const Fraction& f2)
-{
-	return static_cast<double>(f1) < static_cast<double>(f2);
-}
-
-bool operator>(const Fraction& f1, const Fraction& f2)
-{
-	return f2 < f1;
-}
-
-bool operator<=(const Fraction& f1, const Fraction& f2)
-{
-	return !(f2 < f1);
-}
-
-bool operator>=(const Fraction& f1, const Fraction& f2)
-{
-	return !(f1 < f2);
+	return std::to_string(numerator) + "/" + std::to_string(denominator);
 }
 
 std::ostream& operator<<(std::ostream& os, const Fraction& f)
 {
-	os << f.numerator << "/" << f.denominator;
+	os << static_cast<std::string>(f);
 	return os;
 }
 
