@@ -32,10 +32,14 @@ Fraction& Fraction::operator+=(const Fraction& f)
 	return *this;
 }
 
+Fraction Fraction::operator-() const
+{
+	return Fraction{ -numerator, denominator };
+}
+
 Fraction& Fraction::operator-=(const Fraction& f)
 {
-	Fraction negative_f(-f.numerator, f.denominator);
-	return *this += negative_f;
+	return *this += -f;
 }
 
 Fraction& Fraction::operator*=(const Fraction& f)
@@ -48,7 +52,7 @@ Fraction& Fraction::operator*=(const Fraction& f)
 
 Fraction& Fraction::operator/=(const Fraction& f)
 {
-	Fraction reciprocal_f(f.denominator, f.numerator);
+	Fraction reciprocal_f{f.denominator, f.numerator};
 	return *this *= reciprocal_f;
 }
 
@@ -72,7 +76,7 @@ Fraction::operator std::string() const
 
 Fraction::operator bool() const
 {
-	return this->numerator != 0;
+	return numerator != 0;
 }
 
 

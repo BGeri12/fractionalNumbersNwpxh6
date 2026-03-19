@@ -15,6 +15,7 @@ public:
 	Fraction& operator-=(const Fraction& f);
 	Fraction& operator*=(const Fraction& f);
 	Fraction& operator/=(const Fraction& f);
+	Fraction operator-() const;
 
 	explicit operator int() const;
 	explicit operator double() const;
