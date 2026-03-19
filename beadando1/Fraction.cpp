@@ -47,7 +47,7 @@ Fraction Fraction::Parse(const std::string& str)
 			throw std::invalid_argument("Incorrect non-numeric characters in fraction !");
 		}
 	}
-	catch (const std::exception& e)
+	catch (const std::exception&)
 	{
 		throw std::invalid_argument("The specified text cannot be formatted!");
 	}
@@ -177,8 +177,26 @@ std::ostream& operator<<(std::ostream& os, const Fraction& f)
 
 std::istream& operator>>(std::istream& is, Fraction& f)
 {
-	is >> f.numerator;
-	is >> f.denominator;
+	int num, den;
+
+	if (!(is >> num))
+		return is;
+
+	is >> std::ws;
+
+	if (is.peek() == '/')
+	{
+		is.get();
+		is >> den; 
+	}
+	else
+		is >> den;
+
+	if (is)
+		f = Fraction(num, den);
+	else
+		is.setstate(std::ios::failbit);
+
 	return is;
 }
 

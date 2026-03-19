@@ -128,8 +128,16 @@ int main()
 		<< fStr
 		<< std::endl;
 
-	std::cin >> f4;
-	std::cout << "You entered: " << f4 << std::endl;
+	std::cout << "Type a fraction into the console: ";
+
+	if (std::cin >> f4) {
+		std::cout << "You entered: " << f4 << std::endl;
+	}
+	else {
+		std::cout << "Error, wrong format" << std::endl;
+		std::cin.clear(); 
+	}
+
 
 	/*
 	try
