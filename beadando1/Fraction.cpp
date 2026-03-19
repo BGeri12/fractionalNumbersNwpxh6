@@ -117,7 +117,7 @@ bool operator!=(const Fraction& f1, const Fraction& f2)
 
 bool operator<(const Fraction& f1, const Fraction& f2)
 {
-	return f1.numerator * f2.denominator < f2.numerator * f1.denominator;
+	return static_cast<double>(f1) < static_cast<double>(f2);
 }
 
 bool operator>(const Fraction& f1, const Fraction& f2)
