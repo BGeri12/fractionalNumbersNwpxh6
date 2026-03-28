@@ -27,7 +27,7 @@ void Fraction::Simplify()
 Fraction& Fraction::operator+=(const Fraction& other)
 { 
 	numerator = numerator * other.denominator + other.numerator * denominator;
-	denominator = denominator * other.denominator;
+	denominator *= other.denominator;
 	Simplify();
 	return *this;
 }
