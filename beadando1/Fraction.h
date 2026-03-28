@@ -44,3 +44,5 @@ private:
 };
 
 std::ostream& operator<<(std::ostream& os, const Fraction& f);
+
+Fraction operator+(int lhs, const Fraction& rhs);

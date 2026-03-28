@@ -135,6 +135,9 @@ int main()
 		std::cerr << "Error: " << e.what() << '\n';
 	}
 	
+	Fraction f5(1, 3);
+	std::cout << "int + Fraction: " << 10 + f5 << std::endl;
+
 	std::cout << "Type a fraction into the console: ";
 
 	if (std::cin >> f4) {

@@ -177,3 +177,10 @@ Fraction Fraction::Parse(const std::string& input)
 	return Fraction{num, den};
 }
 
+Fraction operator+(int lhs, const Fraction& rhs)
+{
+	Fraction result{ lhs };
+	result += rhs;
+	return result;
+}
+
