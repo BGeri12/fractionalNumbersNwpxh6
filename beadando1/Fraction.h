@@ -43,6 +43,9 @@ private:
 	void Simplify();
 };
 
-std::ostream& operator<<(std::ostream& os, const Fraction& f);
+Fraction operator+(const int number, const Fraction& f);
+Fraction operator-(const int number, const Fraction& f);
+Fraction operator*(const int number, const Fraction& f);
+Fraction operator/(const int number, const Fraction& f);
 
-Fraction operator+(int lhs, const Fraction& rhs);
+std::ostream& operator<<(std::ostream& os, const Fraction& f);

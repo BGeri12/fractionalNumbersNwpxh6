@@ -38,6 +38,11 @@ Fraction Fraction::operator+(const Fraction& other) const
 	return result += other;
 }
 
+Fraction operator+(const int number, const Fraction& f)
+{
+	return f + number;
+}
+
 Fraction Fraction::operator-() const
 {
 	return Fraction{ -numerator, denominator };
@@ -54,10 +59,15 @@ Fraction Fraction::operator-(const Fraction& other) const
 	return result -= other;
 }
 
+Fraction operator-(const int number, const Fraction& f)
+{
+	return -f + number;
+}
+
 Fraction& Fraction::operator*=(const Fraction& other)
 {
-	numerator = numerator * other.numerator;
-	denominator = denominator * other.denominator;
+	numerator *= other.numerator;
+	denominator *= other.denominator;
 	Simplify();
 	return *this;
 }
@@ -66,6 +76,11 @@ Fraction Fraction::operator*(const Fraction& other) const
 {
 	Fraction result{ *this };
 	return result *= other;
+}
+
+Fraction operator*(const int number, const Fraction& f)
+{
+	return f * number;
 }
 
 Fraction& Fraction::operator/=(const Fraction& other)
@@ -78,6 +93,11 @@ Fraction Fraction::operator/(const Fraction& other) const
 {
 	Fraction result{ *this };
 	return result /= other;
+}
+
+Fraction operator/(const int number, const Fraction& f)
+{
+	return Fraction{ number } / f;
 }
 
 bool Fraction::operator==(const Fraction& other) const
@@ -177,10 +197,5 @@ Fraction Fraction::Parse(const std::string& input)
 	return Fraction{num, den};
 }
 
-Fraction operator+(int lhs, const Fraction& rhs)
-{
-	Fraction result{ lhs };
-	result += rhs;
-	return result;
-}
+
 

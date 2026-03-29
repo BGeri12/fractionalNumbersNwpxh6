@@ -136,7 +136,15 @@ int main()
 	}
 	
 	Fraction f5(1, 3);
-	std::cout << "int + Fraction: " << 10 + f5 << std::endl;
+	std::cout << "int (10) + Fraction ("<< f5 <<") = " << 10 + f5 << std::endl;
+
+	Fraction f6(1, 5);
+	std::cout << "int (5) - Fraction (" << f6 << ") = " << 5 - f6 << std::endl;
+
+	Fraction f7(1, 2);
+	std::cout << "int (10) * Fraction (" << f7 << ") = " << 10 * f7 << std::endl;
+
+	std::cout << "int (10) / Fraction (" << f7 << ") = " << 10 / f7 << std::endl;
 
 	std::cout << "Type a fraction into the console: ";
 
