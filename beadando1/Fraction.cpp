@@ -185,17 +185,15 @@ Fraction Fraction::Parse(const std::string& input)
 {
 	// megfelelõ formátum: "num/den"
 
-	std::istringstream iss{ input };
-	int num, den;
-	char separator;
+	std::istringstream iss{ input };	
+	Fraction result;
 
-	iss >> num >> separator >> den;
-
-	if (iss.fail() || separator != '/')
+	if (iss >> result)
+		return result;
+	else
 		throw std::invalid_argument(input + " was not suitable!");
-
-	return Fraction{num, den};
 }
+
 
 
 

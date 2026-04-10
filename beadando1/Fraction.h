@@ -6,6 +6,7 @@ class Fraction
 {
 
 public:
+	Fraction() = default;
 	Fraction(const int numerator);
 	Fraction(const int numerator, const int denominator);
 	Fraction(const Fraction& fraction) = default;
